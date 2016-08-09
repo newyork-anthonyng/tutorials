@@ -20,11 +20,15 @@ const TodoInput = React.createClass({
 		return (
 			<div className="todo-input">
 				<input
+					ref="todoInputField"
 					type="text"
 					value={this.state.todo}
 					onChange={this.handleChange}
 				/>
-				<button onClick={this.handleAddClick}>
+				<button
+					ref="todoInputButton"
+					onClick={this.handleAddClick}
+				>
 					Add Todo
 				</button>
 			</div>
