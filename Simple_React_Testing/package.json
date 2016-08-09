@@ -23,5 +23,11 @@
   "dependencies": {
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   }
 }
