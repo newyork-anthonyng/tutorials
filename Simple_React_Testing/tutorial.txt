@@ -1,14 +1,20 @@
-Goal of this tutorial
-The goal of this tutorial is to learn how to write simple tests for React Components. I want to keep this simple, and have webpack.config and package.json files that we can understand.
+In this tutorial, we will learn how to write tests for React Components. We'll keep it simple and have webpack.config.js and package.json files we can actually understand.
 
 Test Driven Development
-So what's the big deal about Test Driven Development (TDD)? A lot of people preach it like it's gospel, and I'm one of them.
-1. When you create code with testing in mind, you design better code. This is because you are thinking of how other will use your methods/functions/classes before you write them. I've been stuck in many situations where I code by coincidence. I write my code, and get lost in it and don't even remember what the main point of it was. With tests, you keep your code focused on what you are trying to do.
-2. When you can see that all of your tests are well designed and are passing, you know that you are free to safely refactor your code and do what you want with it. Without tests, you have no way of easily checking for regressions.
+So what's the big deal about Test Driven Development (TDD)? There are a lot of great articles and books on TDD, but here are some benefits I see from it.
 
-Do note that Test Driven Development isn't only about unit tests. You'll see many different interpretations of TDD out there, but I like to think of TDD as a mindset. You code with purpose. You make clean succinct code. You have confidence in your code. Unit tests are just a side effect of TDD.
+1. Create better code.
+When you are writing tests first, you keep your code focused on what you are doing. I've been in situations where I code by coincidence; I keep writing code until it works...assuming I remember what the goal of my code was. TDD will keep you on track and cut fat from your code.
 
-Testing the UI for React components is pretty simple because React components are just pure functions. When you have Stateless/Presentational components, they are just functions that should return the same thing given a certain set of variables/props.
+2. Create cleaner code.
+When you have well designed tests that are passing, you know that you can safely refactor your code. How many times have you refactored your working code, only to break everything? TDD gives you the vital signs of your code and warns you when something is wrong; it's a great way to prevent regressions in your code.
+
+3. It's fun.
+Creating code is a long, tough process, and it may take awhile for you to see progress in your project. TDD gives you instant feedback that you are going in the right direction. Seeing your tests pass gives you tiny victories and makes coding, for me, a lot more enjoyable.
+
+Do note that TDD isn't solely about unit tests. I like to think of TDD as a mindset where you code clean, succinct code with a purpose. Unit tests are a side effect of TDD.
+
+Testing React components is simple because React components are pure functions. When you have Stateless/Presentational components, they are just functions that should return the same result given certain inputs.
 
 Mocha
 For this tutorial, we'll be using Mocha, which is a testing framework that we will be running in Node.js. Make sure to download this globally, so you're able to run mocha from your command line. $npm install -g mocha
