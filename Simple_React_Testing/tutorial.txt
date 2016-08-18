@@ -14,8 +14,7 @@ Creating code is a long, tough process, and it may take awhile for you to see pr
 
 Do note that TDD isn't solely about unit tests. I like to think of TDD as a mindset where you create clean, succinct and purposeful code. Unit tests are just a side effect of TDD.
 
-Tools we are using
-Testing React components is simple because React components are pure functions. When you have Stateless/Presentational components, you have functions that should return the same result given certain inputs.
+Testing React components is simple because React components are pure functions. When you have Stateless/Presentational components, they are just functions that should return the same result given certain inputs.
 
 Mocha
 For this tutorial, we'll be using Mocha. Make sure to download this globally so you're able to run mocha from your command line.
