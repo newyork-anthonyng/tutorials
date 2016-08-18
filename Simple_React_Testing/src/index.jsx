@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { TodoInput } from './TodoInput';
 import { TodoList } from './TodoList';
 
-
 const App = React.createClass({
 	getInitialState: function() {
 		return { todos: [] }
