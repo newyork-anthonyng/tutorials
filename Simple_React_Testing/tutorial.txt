@@ -1,19 +1,20 @@
-In this tutorial, we will learn how to write tests for React Components. We'll keep it simple and have webpack.config.js and package.json files we can actually understand.
+In this tutorial, we will learn how to write tests for React Components. We'll keep it simple and have a webpack.config.js and a package.json file we can actually understand.
 
 Test Driven Development
-So what's the big deal about Test Driven Development (TDD)? There are a lot of great articles and books on TDD, but here are some benefits I see from it.
+What's the big deal about Test Driven Development (TDD)? There are a lot of great articles and books on TDD, but here are some benefits I see from it.
 
 1. Create better code.
 When you are writing tests first, you keep your code focused on what you are doing. I've been in situations where I code by coincidence; I keep writing code until it works...assuming I remember what the goal of my code was. TDD will keep you on track and cut fat from your code.
 
 2. Create cleaner code.
-When you have well designed tests that are passing, you know that you can safely refactor your code. How many times have you refactored your working code, only to break everything? TDD gives you the vital signs of your code and warns you when something is wrong; it's a great way to prevent regressions in your code.
+When you have well designed tests that are passing, you know that you can safely refactor. How many times have you refactored your working code, only to break everything? TDD gives you the vital signs of your code and warns you when something is wrong; it's an efficient way of finding regressions in your code.
 
 3. It's fun.
-Creating code is a long, tough process, and it may take awhile for you to see progress in your project. TDD gives you instant feedback that you are going in the right direction. Seeing your tests pass gives you tiny victories and makes coding, for me, a lot more enjoyable.
+Creating code is a long, tough process, and it may take awhile for you to see progress in your project. TDD gives you instant feedback that you are going in the right direction. Seeing your tests pass gives you tiny victories and makes coding (for me, at least) a lot more enjoyable.
 
-Do note that TDD isn't solely about unit tests. I like to think of TDD as a mindset where you code clean, succinct code with a purpose. Unit tests are a side effect of TDD.
+Do note that TDD isn't solely about unit tests. I like to think of TDD as a mindset where you create clean, succinct and purposeful code. Unit tests are just a side effect of TDD.
 
+Tools we are using
 Testing React components is simple because React components are pure functions. When you have Stateless/Presentational components, you have functions that should return the same result given certain inputs.
 
 Mocha
@@ -23,92 +24,99 @@ For this tutorial, we'll be using Mocha. Make sure to download this globally so 
 $ npm install -g mocha
 ```
 
-We'll add a script into our package.json to run our tests. Please note the additional flags we are using to run the tests.
---watch : Mocha will watch our source and test files and automatically rerun tests if the files change.
---compilers: We will use Babel to compile our ES6/JSX code in our tests
---require: We will be running our "test_helper.js" file before our tests start. Our "test_helper.js" file will set up our a fake DOM environment that we will use with React.
+We'll add a script into our package.json to run our tests. Note the additional flags we are using to run the mocha from our command line.
+--watch : Mocha will watch our source and test files and automatically rerun tests when the files change.
+--compilers: We will use Babel to compile our ES6/JSX code in our tests.
+--require: We will be running our "test_helper.js" file before our tests start. Our "test_helper.js" file will set up a fake DOM environment in Node.js that we will need to test our React components.
 
 Chai
 Chai is an assertion library that will help us write our tests in something that reads more like English.
-Instead of our tests reading as..
 ```
+// Instead of our tests reading as..
 assert.equal(3, 2 + 1);
-```
-...using Chai we can write...
-```
+
+// ...using Chai we can write...
 expect(2 + 1).to.equal(3);
 ```
 
 JSDOM
-JSDom is a JavaScript implementation of the DOM and HTML, for use with node.js.
+JSDom is a JavaScript implementation of the DOM and HTML that we can use in node.js.
 When we are testing our React components, we will be mounting them to a DOM. Node.js doesn't come with a DOM, so that's what JSDOM is doing; it's setting up a fake browser environment for us.
 
 Source Code
 We have 3 simple components to test.
 1. A Todo item that displays text.
 2. A TodoList that displays a list of Todo components.
-3. An AddTodo component which has an input field and a button. This component calls a callback when the button is clicked.
+3. An TodoInput component which has an input field and a button. This component calls a callback when the button is clicked.
 
 Simple enough. Let's get testing.
 
 Tests To Run
-Todo Component. What do we want to test?
+You can see the full test files in Github (https://github.com/newyork-anthonyng/tutorials/tree/master/Simple_React_Testing/test).
+1. Todo Component. What do we want to test?
 
-With this simple component, we'll test to see if the <div> tag with a class of "todo" is rendered, and if it rendered the correct text.
-We will be using the "react-addons-test-utils" by the React team in our tests. It provides us with a "renderIntoDocument" function to render our Todo Component into our JSDOM.
-
-"react-addons-test-utils" also gives us some tools to traverse our DOM. "scryRenderedDOMComponentsWithClass" will search our component for any element with a class of "todo".
+With this component, we'll test to see if the <div> tag with a class of "todo" is rendered, and if it rendered the correct text.
+We will be using the "react-addons-test-utils" from the React team in our tests. It provides us with a "renderIntoDocument" function to render our Todo Component into our fake DOM.
 
 ```
-const todo = scryRenderedDOMComponentsWithClass(component, 'todo');
-expect(todo.length).to.equal(1);
+const component = renderIntoDocument(
+	<Todo
+		todo={'Walk dog'}
+	/>
+);
+```
+
+"react-addons-test-utils" also gives us some tools to traverse our DOM. The first one we'll be looking at is "findRenderedDOMComponentWithClass", which will search our component for one element with a class of "todo".
+
+```
+const todo = findRenderedDOMComponentWithClass(component, 'todo');
+expect(todo).to.be.ok;
 ```
 
 Now, let's check that the text content is what we expect it to be.
 
 ```
-const todoText = todo[0].textContent;
-expect(todoText).to.equal('Mow lawn');
+const todoText = todo.textContent;
+expect(todoText).to.equal('Walk dog');
 ```
 
 Simple enough. Let's move onto the TodoList.
 
-TodoList Component. What do we want to test?
-I want to make sure that we're getting a Todo component for each todo item that we have.
-Let's create a TodoList component and pass in 3 todo items. We would expect 3 Todo components to be created. Let's use another method from the react utils, "scryRenderedComponentsWithType", to look through our component and find any Todo components.
+2. TodoList Component. What do we want to test?
+I want to make sure that we're getting a Todo component for each todo.
+Let's create a TodoList component and pass in 3 todo items. We would expect 3 Todo components to be created. Let's use another method from the react utils, "scryRenderedComponentsWithType", to look through our component and find any child components whose type is of a given React class.
 
 ```
-const todos = scryRenderedComponentsWithType(component, Todo);
-expect(todos.length).to.equal(3);
+const todosEle = scryRenderedComponentsWithType(component, Todo);
+expect(todosEle.length).to.equal(3);
 ```
 
-AddTodo Component. What do we want to test?
-I want to test if the input field and button is properly rendered onto DOM. React utils provides us with a method, "scryRenderedDOMComponentsWithTag", which looks for an element with a given HTML tag.
+3. TodoInput Component. What do we want to test?
+I want to test if the input field and button is properly rendered onto the DOM. React utils provides us with a method, "findRenderedDOMComponentWithTag", which looks for one element with a given HTML tag.
 
 ```
-const button = scryRenderedDOMComponentsWithTag(component, 'button');
-expect(button.length).to.equal(1);
-const inputField = scryRenderedDOMComponentsWithTag(component, 'input');
-expect(inputField.length).to.equal(1);
+const inputField = findRenderedDOMComponentWithTag(component, 'input');
+const button = findRenderedDOMComponentWithTag(component, 'button');
+
+expect(inputField).to.be.ok;
+expect(button).to.be.ok;
 ```
 
-Let's also check that the button has the correct text, similar to what we did with the Todo component.
+Now, we want to test if the button will run our callback method. This is where it's good to have stateless components; we can easily mock our Component's props and test that the Component works.
 
 ```
-const buttonText = button[0].textContent;
-expect(buttonText).to.equal('Add Todo');
+let addTodoInvoked = false;
+let addTodo = (todo) => { addTodoInvoked = todo };
+const component = renderIntoDocument(
+	<TodoInput
+		addTodo={addTodo}
+	/>
+);
 ```
 
-Now, we want to test if this Add Todo button will actually call our callback method. This is where it's good to have stateless components; they are easy to test because you can easily mock props and methods.
+I pass the "addTodo" function as a callback to the TodoInput component. Whenever the callback is run, it should update the "addTodoInvoked" variable with the text inside the input field. Simple.
 
-```
-let addInvoked = false;
-let callback = (text) => { addInvoked = text };
-```
-
-I will pass this callback into my AddTodo component. Whenever the callback is run, it should update the "addInvoked" variable with the text inside the Add Todo's input field. Simple.
-
-You might be wondering how we're going to click this button to test if the callback was run. Again, react-utils has a method, "Simulate", that will simulate DOM actions such as a "click" for us.
+You might be wondering how we're going to click this button to test if the callback was run. Again, react-utils has a method, "Simulate", to help us out. "Simulate" does what it says, and simulate DOM actions (such as a "click") for us.
 
 First let's input a value into the text field. We do this by updating the value of the input field itself, then using Simulate.change to update the value in the DOM.
 
@@ -123,10 +131,10 @@ Then, we'll use Simulate.click to click the button.
 Simulate.click(button);
 ```
 
-Our test should test that the callback has been called.
+Our test should test that the callback has been run.
 
 ```
-expect(addInvoked).to.equal('Mow lawn');
+expect(addTodoInvoked).to.equal('Mow lawn');
 ```
 
 And that's it. This was a simple introduction to testing React Components. I hope this helps you understand one of the benefits of working with Stateless components. It's easy to set up tests and easily mock any callbacks, and testing AJAX calls and redux reducers are pretty much the same.
