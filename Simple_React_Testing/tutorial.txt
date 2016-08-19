@@ -136,4 +136,39 @@ Our test should test that the callback has been run.
 expect(addTodoInvoked).to.equal('Mow lawn');
 ```
 
-And that's it. This was a simple introduction to testing React Components. I hope this helps you understand one of the benefits of working with Stateless components. It's easy to set up tests and easily mock any callbacks, and testing AJAX calls and redux reducers are pretty much the same.
+And that's it; testing Stateless React components are that simple. It should be easy to set up tests and easily mock any callbacks, because we keep our functions pure.
+If we wanted to use Redux, reducers would be just as easy to test because they're just pure functions. It would be even easier than testing React components because states are just vanilla JavaScript data types; we don't need any additional utilities like we did for React components.
+
+Let's say we had a reducer in our project, like below:
+
+```
+const initialState = [];
+
+const reducer = (state = initialState, action) => {
+	let newTodos;
+
+	switch(action.type) {
+		case 'ADD_TODO':
+			newTodos = state.slice();
+			newTodos.push(action.data);
+			return newTodos;
+		default:
+			return state;
+	};
+};
+```
+
+To test this, we have to stub an initial state and an action. An example of a test would look like the below:
+
+```
+const initialState = ['Mow lawn'];
+cons action = {
+	type: 'ADD_TODO',
+	data: 'Walk Dog'
+};
+const nextState = reducer(initialState, action);
+
+expect(nextState).to.deep.equal(['Mow lawn', 'Walk Dog']);
+```
+
+Have any questions? Do you do testing differently? Feel free to comment below.
