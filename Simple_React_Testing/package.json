@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/*@(.js|.jsx)\" --watch --watch-extensions jsx"
-		// --compilers: use the babel
-
   },
   "author": "",
   "license": "ISC",
