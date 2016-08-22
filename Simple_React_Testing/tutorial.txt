@@ -137,6 +137,8 @@ expect(addTodoInvoked).to.equal('Mow lawn');
 ```
 
 And that's it; testing Stateless React components are that simple. It should be easy to set up tests and easily mock any callbacks, because we keep our functions pure.
+
+Testing Reducers
 If we wanted to use Redux, reducers would be just as easy to test because they're just pure functions. It would be even easier than testing React components because states are just vanilla JavaScript data types; we don't need any additional utilities like we did for React components.
 
 Let's say we had a reducer in our project, like below:
@@ -170,5 +172,30 @@ const nextState = reducer(initialState, action);
 
 expect(nextState).to.deep.equal(['Mow lawn', 'Walk Dog']);
 ```
+
+Testing AJAX
+Working with AJAX calls is another common functionality that you may want to test. I would recommend using "axios" for your AJAX needs. Axios is an HTTP client that you can use in the browser or node.js. This means that you'll get to use a consistent API no matter where you're making your AJAX calls from.
+
+A simple get request in axios would look like this:
+```
+axios.get('myUrl');
+```
+
+There are different ways of approaching how to test this. For this tutorial, we're going to use "sinon", a testing library that will give us a lot of testing utility functions, similar to what react-addons-test-utils provided. We'll be looking at a method called "spy" which will let us see information about a method, such as how many times the method was called.
+
+Our code to check that we're using axios to make a request would look like so:
+```
+// spy on the axios.get() method to see how many times it was called
+sinon.spy(axios, 'get');
+
+// make a request using axios.get()
+utility.makeAjax();
+
+// expect that axios.get() was called once
+expect(axios.get.callCount).to.equal(1);
+```
+
+Sinon gives you a lot of functionality; including stubs, mocks, and creating fake XMLHttpRequests and fake servers. When starting out, be cognizant of where you're running your tests (browser vs. node.js).
+If you are running your tests in node.js like we are, do note that we do not have access to XMLHttpRequest and other browser objects because...well...we're not in a browser. Some of sinon's functionality expect a browser environment. If that's the case, you may want to consider running your tests through a browser, or looking into Karma to run your tests through a headless browser through your command line.
 
 Have any questions? Do you do testing differently? Feel free to comment below.
