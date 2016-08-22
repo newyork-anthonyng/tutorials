@@ -5,8 +5,7 @@ import { expect } from 'chai';
 
 describe('Utility', () => {
 	beforeEach(() => {
-		const resolved = new Promise((r) => r({ data: [] }));
-		sinon.stub(axios, 'get').returns(resolved);
+		sinon.spy(axios, 'get');
 	});
 
 	afterEach(() => {
