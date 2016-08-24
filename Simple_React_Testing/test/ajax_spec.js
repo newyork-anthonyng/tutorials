@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 describe('Utility', () => {
 	beforeEach(() => {
-		sinon.spy(axios, 'get');
+		sinon.stub(axios, 'get');
 	});
 
 	afterEach(() => {
