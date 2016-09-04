@@ -1,0 +1,34 @@
+5 Ways You're Using <img> Wrong
+
+1. Picture dimensions are too large
+	a. websites with picture dimensions that are larger than used
+	b. if maximum size of picture is only 960px, then there's no need using a picture that is 1800px.
+	c. Load times for the picture will suffer, and it's more noticeable at slower connections
+	d. Solution: use an image manipulation program, such as Gimp or Sketch, to resize the photo
+	e. note the file size reduction
+
+2. Not compressing
+	a. picture is at the dimension that you want it, which reduces the file size, we can still use compression
+	b. Compression will reduce quality size
+	c. Solution: use a program like imageOptimum. You can also use Grunt tasks.
+
+3. Not responsive size
+	a. bad user experience on mobile, if the user has to scroll left and right on their phone to view the full photo
+	b. Solution: use media queries, with max-width of 100%.
+
+4. Picture source
+	a. Sometimes media queries aren't enough.
+	b. Scaled down images look bad
+	c. Requires the user to zoom into the photo
+	d. It would be great if we could use a cropped version of our photo and serve it on smaller devices
+	e. Solution: use a program to crop your image
+	f. Solution: use <picture> and <source> tag to tell the browser which image to request, based on the media query provided
+	g. Solution: Great solution because it only requests the needed image for the media query (not all of the images)
+
+5. Offline Storage
+	a. If our website uses the same static image, consider caching this
+	b. Benefits are that we save an HTTP request to get the image
+	c. Caches are quicker to retrieve assets from
+	d. Designing for offline is the new RWD
+	e. Solution: using application cache is now deprecated
+	f. Use service workers. New technology that gives you a lot of control
