@@ -1,6 +1,7 @@
 6 Ways You're Using <img> Wrong
 
 Images make up the majority of most website pages. Let's talk about how we can use images and make sure we're getting the most out of it. We're responsible for the user's experience, and should keep in mind how much data we force the user to use, and how long they're waiting.
+Let's try to look at 6 mistakes to avoid when using images.
 
 1. Picture dimensions are too large
 When going into a website, the client has to download all assets that the HTML page includes. This means any JavaScript files, stylesheets, and of course, images that are used in the HTML page have to be loaded. Each of these assets takes time to load; and naturally, the larger the file the longer it'll take. We minify our JavaScript files so that it's a smaller file size, and we should do the same with our images. There is no reason to have images that are larger than they need to be.
@@ -23,7 +24,7 @@ Now that you have a slimmed down image file, it should download faster to the HT
 Solution
 Let's use media queries to style our images when the display is a certain size. On smaller displays, we're going to be using max-width: 100%. This way, the image will always fit inside the display and the user won't have to scroll around the page to view the full image.
 
-4. Art Direction
+4. No Art Direction
 We have a nice user experience now; the image is responsive and fits entirely on smaller display. But sometimes, a scaled down image isn't exactly what we want. With our example, we can clearly see the details inside our image on larger displays. But once the image is scales down, we lose a lot of our detail. It might force the user to zoom into the photo, which might not be a great user experience. In situations like this, the image needs to be changed more drastically; you might want to crop the image or change the image altogether. When you change the image, this is referred as art direction.
 
 Solution
@@ -31,7 +32,7 @@ To use different images, we can use the <picture> and <source> HTML tags. This t
 
 What's great about using the <picture> tag is that only the images that are used will be requested. If you're looking on a website from your phone, you'll only download the image your specified for the phone. All other images won't be requested.
 
-5. Offline Storage
+5. No Caching
 Responsive Web Designs was a relatively new concept. We should be designing our websites so they look good, no matter what device they're on. Now, we have to start looking ahead and thinking about how our websites operate. The new trend is for websites to feel more like Native Apps on devices, which among other things, means that our websites should function even without internet connection.
 
 For images, this means that we should be caching our images that are static and won't be getting updated often (such as logos). When caching assets, the assets are saved onto the client browser. The benefit of this is that when the user visits our websites in the future, it will first look for any assets in our cache before requesting it with an HTTP request. The benefits of this is the speed; retrieving assets from the cache are faster than an HTTP request.
@@ -39,7 +40,7 @@ For images, this means that we should be caching our images that are static and 
 Solution
 We should use service workers to cache our assets. Service Workers are a new, powerful technology that acts as a middleware between your client browser and the web. This allows us to have fully functioning offline webpages! But for our purpose, we're just going to be using Service Workers to cache our image.
 
-6. Alt Attribute
+6. No Accessibility
 When using the <img> HTML tag, keep in mind the "alt" property. When the visually impaired are using screen readers, it will skip over any <img> tags that don't have an "alt" property. This means we should use "alt" tags that are necessary to the content of your webpage. But you can leave the "alt" property out when it's not necessary, such as when the image is used purely for decoration.
 
 Do you have any other suggestions for how to better use images on your website? Leave a comment below!
