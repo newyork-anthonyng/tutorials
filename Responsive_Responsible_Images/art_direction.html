@@ -3,9 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>04. No Art Direction</title>
+	<style>
+		img {
+			max-width: 100%;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>04. No Art Direction</h1>
+	<picture>
+		<source srcset="./images/skyline_cropped.jpg" media="(max-width: 500px)">
+		<img src="./images/skyline_compressed.jpg">
+	</picture>
+	<img src="./images/skyline_compressed.jpg">
 </body>
 </html>
