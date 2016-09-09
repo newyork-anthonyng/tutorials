@@ -1,9 +1,8 @@
 You need to stop making these 6 mistakes with your <img>'s
 
 Images make up the majority of most websites. We have a responsibility to ensure the best user experience possible; but the thought for many that goes into using images is to get the correct URL path for our HTML and CSS, and nothing else. Let's look at 6 mistakes to avoid when using images.
-*****Include links*****
-All of the examples are on this website, and you can find all of the source code here on Github.
-*****Include links*****
+
+All of the examples are on this website (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/), and you can find all of the source code here on Github (https://github.com/newyork-anthonyng/tutorials/tree/master/Responsive_Responsible_Images).
 
 1. Picture dimensions are too large
 When going onto a website, an HTML page is sent to your browser. The browser then has to download any assets that the HTML page includes. Any JavaScript files, stylesheets, and of course, images, that are used in the HTML page have to be requested and loaded by the browser. Each of these assets takes time to load; the larger the file, the longer it will take.
@@ -14,7 +13,7 @@ If the maximum width of an image on your website is going to be 960px, then ther
 Solution
 When you know the dimensions of your images, use a program that can resize photos (I use Sketch or Affinity Designer) to what you need it to be.
 
-In our example *****include link**** here, the images both have a width of 960px. However, the original photo has a width of 5183px. There is no use having an image with such large dimensions if we're not going to utilize it. After reducing the photo dimensions to have a width of 960px, we see a 90% reduction in file size, with a 6 second improvement in loading time over a wifi connection. When using the Chrome Developer tool to throttle the connection to a Regular 4G connection, we see a 16 second improvement in loading time! (Loading times may vary depending on your network speed).
+In our example (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/image_dimension.html) here, the images both have a width of 960px. However, the original photo has a width of 5183px. There is no use having an image with such large dimensions if we're not going to utilize it. After reducing the photo dimensions to have a width of 960px, we see a 90% reduction in file size, with a 6 second improvement in loading time over a wifi connection. When using the Chrome Developer tool to throttle the connection to a Regular 4G connection, we see a 16 second improvement in loading time! (Loading times may vary depending on your network speed).
 
 2. Not Compressing
 Reducing the dimensions of our image is a great start to reducing the overall file size, but we can do more.
@@ -26,7 +25,7 @@ I use an application called ImageOptim to compress my images.
 To use it, all you need to do is drag your images into the application and...that's it. The new compressed image will replace your old one.
 If you want to automate image compression, you can use a task runner, such as Grunt, to minify your images when building your project.
 
-In our example *****include link***** here, we see a 13% reduction in file size after compression. with a 100 millisecond (12%) improvement in loading time over a wifi connection.
+In our example (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/image_compression.html) here, we see a 13% reduction in file size after compression. with a 100 millisecond (12%) improvement in loading time over a wifi connection.
 100 milliseconds may seem small, but these savings make a difference when you have multiple images on the same page trying to battle through a weak 3G network onto an iPhone.
 
 3. Not Responsive
@@ -37,7 +36,7 @@ There are websites where the image doesn't completely fit into the display. You 
 Solution
 Let's use media queries to style our images when the display is a certain size. On smaller displays, we'll use "max-width: 100%" to style our images.
 
-In our example ****include link***** here, whenever we resize the page, we can see that our responsive image will always fit entirely inside the display. The user doesn't have to scroll or zoom to view the full image.
+In our example (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/responsive.html) here, whenever we resize the page, we can see that our responsive image will always fit entirely inside the display. The user doesn't have to scroll or zoom to view the full image.
 
 4. No Art Direction
 Our user experience is definitely improving; our image is light and responsive. However, this scaled down image might not be exactly what we want on our website.
@@ -49,7 +48,7 @@ By making our image responsive, we avoided the issue of users scrolling and zoom
 In situations like this, our image needs to be changed more drastically; you might want to crop the image or change the image altogether. Doing this is referred to as "art direction."
 
 Solution
-To use different images, we can use the <picture> and <source> HTML tags. This tells the browser which image to request and use based on a media query. In our *****insert link***** example, we'll be using different images based on the size of our display. Now when you resize the website, you should be able to see the Empire State Building in all of its glory.
+To use different images, we can use the <picture> and <source> HTML tags. This tells the browser which image to request and use based on a media query. In our (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/art_direction.html) example, we'll be using different images based on the size of our display. Now when you resize the website, you should be able to see the Empire State Building in all of its glory.
 
 5. No Caching
 Responsive Web Design is a relatively new concept. We should be designing our websites to look good, no matter what display they're on. Now, there is a new trend for websites to feel more like Native Apps, which, among other things, means that our websites should function even without internet connection.
@@ -59,7 +58,7 @@ What does this mean for our images? For images that are static and won't be gett
 Solution
 We are going to be using Service Workers to cache our assets.
 Service Workers are a new, powerful technology that acts as a middleware between your browser and the internet.
-This allows us to have fully functioning webpages offline! In our *****insert link**** example, if you turn your internet off and refresh the page, you will see our website still functioning as it used to.
+This allows us to have fully functioning webpages offline! In our (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/offline.html) example, if you turn your internet off and refresh the page, you will see our website still functioning as it used to.
 
 6. No Accessibility
 When using the <img> HTML tag, keep in mind the "alt" property. When the visually impaired are using screen readers, it will read the "alt" property of any images it encounters, and will skip over any images that doesn't have the "alt" property. This means we should use the "alt" property for any images that are necessary content; you can leave it out for any images that are purely for decoration.
