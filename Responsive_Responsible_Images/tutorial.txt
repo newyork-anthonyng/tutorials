@@ -16,17 +16,12 @@ When you know the dimensions of your images, use a program that can resize photo
 In our example (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/image_dimension.html) here, the images both have a width of 960px. However, the original photo has a width of 5183px. There is no use having an image with such large dimensions if we're not going to utilize it. After reducing the photo dimensions to have a width of 960px, we see a 90% reduction in file size, with a 6 second improvement in loading time over a wifi connection. When using the Chrome Developer tool to throttle the connection to a Regular 4G connection, we see a 16 second improvement in loading time! (Loading times may vary depending on your network speed).
 
 2. Not Compressing
-Reducing the dimensions of our image is a great start to reducing the overall file size, but we can do more.
-We can compress our image to further reduce the image file size, with little (if any) reduction of image quality.
-Compression removes unnecessary junk from our image, such as metadata, embedded thumbnails, comments and unnecessary color profiles.
+Reducing the dimensions of our image is a great start to reducing the overall file size, but we can do more. We can compress our image to further reduce the image file size, with little (if any) reduction of image quality. Compression removes unnecessary junk from our image, such as metadata, embedded thumbnails, comments and unnecessary color profiles.
 
 Solution
-I use an application called ImageOptim to compress my images.
-To use it, all you need to do is drag your images into the application and...that's it. The new compressed image will replace your old one.
-If you want to automate image compression, you can use a task runner, such as Grunt, to minify your images when building your project.
+I use an application called ImageOptim to compress my images. To use it, all you need to do is drag your images into the application and...that's it. The new compressed image will replace your old one. If you want to automate image compression, you can use a task runner, such as Grunt, to minify your images when building your project.
 
-In our example (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/image_compression.html) here, we see a 13% reduction in file size after compression. with a 100 millisecond (12%) improvement in loading time over a wifi connection.
-100 milliseconds may seem small, but these savings make a difference when you have multiple images on the same page trying to battle through a weak 3G network onto an iPhone.
+In our example (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/image_compression.html) here, we see a 13% reduction in file size after compression. with a 100 millisecond (12%) improvement in loading time over a wifi connection. 100 milliseconds may seem small, but these savings make a difference when you have multiple images on the same page trying to battle through a weak 3G network onto an iPhone.
 
 3. Not Responsive
 Now we have a slimmed down image file that will quickly load on your HTML page. The user experience is definitely better, but our job isn't finished yet. We have to make sure that the image looks good on displays of all sizes; it has to be responsive.
@@ -56,9 +51,7 @@ Responsive Web Design is a relatively new concept. We should be designing our we
 What does this mean for our images? For images that are static and won't be getting updated often (such as logos), we should be caching them. When caching assets, theese assets are saved to the client browser. The benefit of this is that when the user visits our websites in the future, it will first look for any assets in our cache before requesting from the server. Our image will load even faster, because retrieving from the cache is usually faster than making an HTTP request. Another benefit is that we can even access our image even without internet connection!
 
 Solution
-We are going to be using Service Workers to cache our assets.
-Service Workers are a new, powerful technology that acts as a middleware between your browser and the internet.
-This allows us to have fully functioning webpages offline! In our (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/offline.html) example, if you turn your internet off and refresh the page, you will see our website still functioning as it used to.
+We are going to be using Service Workers to cache our assets. Service Workers are a new, powerful technology that acts as a middleware between your browser and the internet. This allows us to have fully functioning webpages offline! In our (https://newyork-anthonyng.github.io/Responsible_Responsive_Images/offline.html) example, if you turn your internet off and refresh the page, you will see our website still functioning as it used to.
 
 6. No Accessibility
 When using the <img> HTML tag, keep in mind the "alt" property. When the visually impaired are using screen readers, it will read the "alt" property of any images it encounters, and will skip over any images that doesn't have the "alt" property. This means we should use the "alt" property for any images that are necessary content; you can leave it out for any images that are purely for decoration.
