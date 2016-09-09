@@ -65,3 +65,9 @@ This allows us to have fully functioning webpages offline! In our *****insert li
 When using the <img> HTML tag, keep in mind the "alt" property. When the visually impaired are using screen readers, it will read the "alt" property of any images it encounters, and will skip over any images that doesn't have the "alt" property. This means we should use the "alt" property for any images that are necessary content; you can leave it out for any images that are purely for decoration.
 
 Do you have any other suggestions for how to better use images on your website? Leave a comment below!
+
+Want to learn more about Service Workers? Check out this introduction in the Google Developer page.
+https://developers.google.com/web/fundamentals/primers/service-worker/
+
+Want to learn more about creating better user experiences by better performant websites? Check out this book.
+http://designingforperformance.com/
