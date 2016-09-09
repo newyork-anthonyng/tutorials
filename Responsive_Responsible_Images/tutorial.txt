@@ -1,46 +1,67 @@
-6 Ways You're Using <img> Wrong
+You need to stop making these 6 mistakes with your <img>'s
 
-Images make up the majority of most website pages. Let's talk about how we can use images and make sure we're getting the most out of it. We're responsible for the user's experience, and should keep in mind how much data we force the user to use, and how long they're waiting.
-Let's try to look at 6 mistakes to avoid when using images.
+Images make up the majority of most websites. We have a responsibility to ensure the best user experience possible; but the thought for many that goes into using images is to get the correct URL path for our HTML and CSS, and nothing else. Let's look at 6 mistakes to avoid when using images.
+*****Include links*****
+All of the examples are on this website, and you can find all of the source code here on Github.
+*****Include links*****
 
 1. Picture dimensions are too large
-When going into a website, the client has to download all assets that the HTML page includes. This means any JavaScript files, stylesheets, and of course, images that are used in the HTML page have to be loaded. Each of these assets takes time to load; and naturally, the larger the file the longer it'll take. We minify our JavaScript files so that it's a smaller file size, and we should do the same with our images. There is no reason to have images that are larger than they need to be.
+When going onto a website, an HTML page is sent to your browser. The browser then has to download any assets that the HTML page includes. Any JavaScript files, stylesheets, and of course, images, that are used in the HTML page have to be requested and loaded by the browser. Each of these assets takes time to load; the larger the file, the longer it will take.
 
-If the maximum size of a picture on your website is only going to be 960px wide, then there is no need to be using an image file that is 1800px wide. The load times will suffer, and it's more noticeable at slower connections.
+We minify our JavaScript files to remove unnecessary bloat and get a smaller file size, and we should do the same with our images. One way to get rid of image "bloat" is to make sure its dimensions are reasonable. There is no reason to have images that are larger than they need to be.
+If the maximum width of an image on your website is going to be 960px, then there is no need to be using an image file that is 1800px wide. The load time of the website will suffer (especially on slower connections), and you're forcing your user to download more bytes than they need.
 
 Solution
-When you know how big your images will be on your website, use a program that can resize photos (I use Sketch or Affinity Designer) to resize the photo. Notice the file size reduction and the faster download speed.
+When you know the dimensions of your images, use a program that can resize photos (I use Sketch or Affinity Designer) to what you need it to be.
+
+In our example *****include link**** here, the images both have a width of 960px. However, the original photo has a width of 5183px. There is no use having an image with such large dimensions if we're not going to utilize it. After reducing the photo dimensions to have a width of 960px, we see a 90% reduction in file size, with a 6 second improvement in loading time over a wifi connection. When using the Chrome Developer tool to throttle the connection to a Regular 4G connection, we see a 16 second improvement in loading time! (Loading times may vary depending on your network speed).
 
 2. Not Compressing
-Reducing the dimensions of our image is a great start to reducing the image file size, but we can do more. We can use compression on our images to furter reduce the image file size, with little if any reduction of image quality. The compression removes unnecessary junk from our image, such as metadata, embedded thumbnails, comments and unncessary color profiles.
+Reducing the dimensions of our image is a great start to reducing the overall file size, but we can do more.
+We can compress our image to further reduce the image file size, with little (if any) reduction of image quality.
+Compression removes unnecessary junk from our image, such as metadata, embedded thumbnails, comments and unnecessary color profiles.
 
 Solution
-I use an application called ImageOptim to compress my images. To use it, all you need to do is drag your images into the application...that's it.
-If you want to automate it, you can set up Grunt tasks to minify your images.
+I use an application called ImageOptim to compress my images.
+To use it, all you need to do is drag your images into the application and...that's it. The new compressed image will replace your old one.
+If you want to automate image compression, you can use a task runner, such as Grunt, to minify your images when building your project.
+
+In our example *****include link***** here, we see a 13% reduction in file size after compression. with a 100 millisecond (12%) improvement in loading time over a wifi connection.
+100 milliseconds may seem small, but these savings make a difference when you have multiple images on the same page trying to battle through a weak 3G network onto an iPhone.
 
 3. Not Responsive
-Now that you have a slimmed down image file, it should download faster to the HTML page. However, your job isn't finished yet. We have to make sure that the image is responsive and looks good on all display sizes. You can see a lot of situations where the image doesn't fit into the display, and you have to scroll left and right to view the entire photo. This isn't the best user experience.
+Now we have a slimmed down image file that will quickly load on your HTML page. The user experience is definitely better, but our job isn't finished yet. We have to make sure that the image looks good on displays of all sizes; it has to be responsive.
+
+There are websites where the image doesn't completely fit into the display. You have to scroll left and right, or even zoom out, to view the entire photo. This isn't the best user experience.
 
 Solution
-Let's use media queries to style our images when the display is a certain size. On smaller displays, we're going to be using max-width: 100%. This way, the image will always fit inside the display and the user won't have to scroll around the page to view the full image.
+Let's use media queries to style our images when the display is a certain size. On smaller displays, we'll use "max-width: 100%" to style our images.
+
+In our example ****include link***** here, whenever we resize the page, we can see that our responsive image will always fit entirely inside the display. The user doesn't have to scroll or zoom to view the full image.
 
 4. No Art Direction
-We have a nice user experience now; the image is responsive and fits entirely on smaller display. But sometimes, a scaled down image isn't exactly what we want. With our example, we can clearly see the details inside our image on larger displays. But once the image is scales down, we lose a lot of our detail. It might force the user to zoom into the photo, which might not be a great user experience. In situations like this, the image needs to be changed more drastically; you might want to crop the image or change the image altogether. When you change the image, this is referred as art direction.
+Our user experience is definitely improving; our image is light and responsive. However, this scaled down image might not be exactly what we want on our website.
+
+For example, our website might be about the Empire State Building. When the image is 960px, the Empire State Building is standing majestically in the center of the skyline, recognizable at a glance. But once we resize our browser to be 360px wide, it loses some of its pizzazz. In this instance, a scaled down image isn't what we want.
+
+By making our image responsive, we avoided the issue of users scrolling and zooming out to view our image. But we're replacing that problem with a new one; users now have to zoom into the image, only to see a pixelated Empire State Building. This isn't the best user experience.
+
+In situations like this, our image needs to be changed more drastically; you might want to crop the image or change the image altogether. Doing this is referred to as "art direction."
 
 Solution
-To use different images, we can use the <picture> and <source> HTML tags. This tells the browser which image to request and use, based on the size of our display (or whatever media query is provided).
-
-What's great about using the <picture> tag is that only the images that are used will be requested. If you're looking on a website from your phone, you'll only download the image your specified for the phone. All other images won't be requested.
+To use different images, we can use the <picture> and <source> HTML tags. This tells the browser which image to request and use based on a media query. In our *****insert link***** example, we'll be using different images based on the size of our display. Now when you resize the website, you should be able to see the Empire State Building in all of its glory.
 
 5. No Caching
-Responsive Web Designs was a relatively new concept. We should be designing our websites so they look good, no matter what device they're on. Now, we have to start looking ahead and thinking about how our websites operate. The new trend is for websites to feel more like Native Apps on devices, which among other things, means that our websites should function even without internet connection.
+Responsive Web Design is a relatively new concept. We should be designing our websites to look good, no matter what display they're on. Now, there is a new trend for websites to feel more like Native Apps, which, among other things, means that our websites should function even without internet connection.
 
-For images, this means that we should be caching our images that are static and won't be getting updated often (such as logos). When caching assets, the assets are saved onto the client browser. The benefit of this is that when the user visits our websites in the future, it will first look for any assets in our cache before requesting it with an HTTP request. The benefits of this is the speed; retrieving assets from the cache are faster than an HTTP request.
+What does this mean for our images? For images that are static and won't be getting updated often (such as logos), we should be caching them. When caching assets, theese assets are saved to the client browser. The benefit of this is that when the user visits our websites in the future, it will first look for any assets in our cache before requesting from the server. Our image will load even faster, because retrieving from the cache is usually faster than making an HTTP request. Another benefit is that we can even access our image even without internet connection!
 
 Solution
-We should use service workers to cache our assets. Service Workers are a new, powerful technology that acts as a middleware between your client browser and the web. This allows us to have fully functioning offline webpages! But for our purpose, we're just going to be using Service Workers to cache our image.
+We are going to be using Service Workers to cache our assets.
+Service Workers are a new, powerful technology that acts as a middleware between your browser and the internet.
+This allows us to have fully functioning webpages offline! In our *****insert link**** example, if you turn your internet off and refresh the page, you will see our website still functioning as it used to.
 
 6. No Accessibility
-When using the <img> HTML tag, keep in mind the "alt" property. When the visually impaired are using screen readers, it will skip over any <img> tags that don't have an "alt" property. This means we should use "alt" tags that are necessary to the content of your webpage. But you can leave the "alt" property out when it's not necessary, such as when the image is used purely for decoration.
+When using the <img> HTML tag, keep in mind the "alt" property. When the visually impaired are using screen readers, it will read the "alt" property of any images it encounters, and will skip over any images that doesn't have the "alt" property. This means we should use the "alt" property for any images that are necessary content; you can leave it out for any images that are purely for decoration.
 
 Do you have any other suggestions for how to better use images on your website? Leave a comment below!
