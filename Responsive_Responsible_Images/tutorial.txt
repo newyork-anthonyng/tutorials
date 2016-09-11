@@ -1,4 +1,4 @@
-You need to stop making these 6 mistakes with your <img>'s
+Mistakes people make with their <img>'s
 
 Images make up the majority of most websites. We have a responsibility to ensure the best user experience possible; but the thought for many that goes into using images is to get the correct URL path for our HTML and CSS, and nothing else. Let's look at 6 mistakes to avoid when using images.
 
