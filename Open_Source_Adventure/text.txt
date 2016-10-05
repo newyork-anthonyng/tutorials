@@ -1,21 +1,106 @@
 Open Source Adventure
 
+=================================================================
 Inspiration ✨ 
 
+After reading Shubheksha's article "Hey newbie open source contributors: please blog more." (https://medium.freecodecamp.com/new-contributors-to-open-source-please-blog-more-920af14cffd#.rwxevlacv), I decided to throw my hat into the ring.
+The idea of Open Source Projects always resonated with me; people volunteering their time and knowledge for the common good.
+I've been told that working on Open Source Projects is one of the best ways to learn.
+You get to see code that other, more skilled and experienced, people wrote.
+You also get to work with technology that you would've have otherwise used yourself on your hobby projects.
+
+I also think that working in Open Source implies some altruistic characteristics of contributors; I imagine a Robin Hood figure armed with a MacBook (which you can barely distinguish under its 20 stickers) courageously battling closed-source Legacy code.
+I want to be a Robin Hood.
+
+=================================================================
 Fears ☠
 
+I had a number of fears before starting my Open Source adventures.
+My main fear was the size and complexity of the project I would work on.
+Staring at a repository with 2,000 commits can be daunting, especially when my hobby projects top out at 40 commits.
+As you start navigating through the forest of files with cryptic names that you've never hreard of (.snyk, .varci.yml, pm2Start.js), thoughts of Imposter Syndrome start creeping in.
+"Am I actually qualified to touch this code?" you wonder.
+
+I've also heard some stories about harsh communities.
+I will come to a point where I need some guidance and...talk to an actual person!
+Dread suffocates me as I think about my first conversation with an Open Source Maintainer.
+In my head, their responses to my question range from "lol are you serious?" to "maybe web development isn't for you."
+I take comfort at the fact that, like an internet troll, I can hide myself (and my shame) behind my computer.
+
+One last fear is that my Pull Request won't get merged.
+It's possible that my work is just so poor that other maintainers won't bother to steer me in the right direction.
+I wonder if it's worth devoting hours, or even days, of my time on code might not even get used.
+
+Despite these fears, I decide to start on my Open Source Adventure.
+
+=================================================================
 Finding a project 🔎
 
+The first step is to find an Open Source Project to work on.
+Shubheksha article "How to find your first open source bug to fix" (https://medium.freecodecamp.com/finding-your-first-open-source-project-or-bug-to-work-on-1712f651e5ba#.q0bt5j41d) recommended looking at "Up For Grabs" (http://up-for-grabs.net/) for project candidates.
+After scanning through the list of JavaScript projects, I didn't find any that caught my eye.
+
+I wanted to find a project that I personally use and believe in.
+The problem with that is most of those are so mature that it's too advanced for me to follow along.
+I love React, but I don't have any idea how to fix "unexpected interleaving of subtree/parent lifecycle methods."
+And the new projects where I could make a significant dent in are unknown to me because I don't use them.
+
+Then I remember that Free Code Camp is open source.
+It passes my test as a project I use and believe in; I've gone through hours of their curriculum and love how they help new developers and non-profits at the same time. I also highly recommended Free Code Camp to anyone who thought of doing web development.
+
+After scanning through their list of Open Issues on Github, I chose Free Code Camp as my first Open Source Project.
+
+=================================================================
 Finding a bug 🐜
 
+The next step is to find an issue to work on.
+Theoretically, this should be the easiest and quickest thing to do.
+That's also what I think watching a movie on Netflix is like; and sometimes it feels like picking something to watch actually takes longer than watching it.
+
+With over 300 open issues, I decide to filter them by labels. I find one called "first-timers-only" which sounds friendly enough.
+This yields one issue with over 80 comments. It doesn't look like something I can jump right into and start working on so I continue my search.
+
+I find another label called "help wanted", and I scan for issues with 0 comments.
+I notice that a number of these "open" issues have actually been resolved by PR's, but the issues themselves haven't been closed.
+I wonder how many of these 300 issues are actually outstanding.
+
+After 15 minutes of browsing through the issues, I decide to use a different tactic; I'll sit and wait for new issues to be opened and claim any that I can handle.
+After waiting 15 minutes, I see that most of the new issues are students that are stuck on the challenges.
+These issues aren't actual bugs that I can fix.
+
+And then, issue #10989 (https://github.com/FreeCodeCamp/FreeCodeCamp/issues/10989) came into my life.
+It was an issue related to a rigid regex test for one of the challenges.
+I'm thinking to myself, "I know a little about regex."
+Then one of the maintainers comments that this is a valid issue and adds a "help wanted" label to it.
+My heart is pounding as I reread the issue 3 more times to make sure I didn't miss anything.
+I'm thinking to myself, "I can do this!"
+
+I comment on the issue and shyly ask if I can work on it.
+My knees are weak and arms are heavy. My palms are sweating as I wait for a response. I feel as nervous as if I just texted a girl asking them on a date.
+
+And finally...someone responds back "you can work on that."
+Now it's time to work.
+
+
+=================================================================
 Getting started 🚶🚶🏃
 
+
+=================================================================
 Working through Roadblocks 🚷
 
+
+=================================================================
 Pull Request Merged! 🏋
 
+
+=================================================================
 What I learned 🤓
 
+
+=================================================================
 Advice to new Open Source contributors 👶
 
+
+=================================================================
 Advice to Open Source maintainers 👤
