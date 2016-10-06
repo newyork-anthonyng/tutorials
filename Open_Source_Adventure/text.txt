@@ -85,22 +85,127 @@ Now it's time to work.
 =================================================================
 Getting started 🚶🚶🏃
 
+I start by looking through the README.md in the repository.
+Thankfully, they have very detailed instructions on how to contribute and create pull requests.
+They have a Gitter channel just for contributors.
+I fork the repository and get started.
 
 =================================================================
-Working through Roadblocks 🚷
+Stumbling 🚷
 
+I know that getting my environment set up will be tough.
+My mentor told me that it took him a week to get all the right programs installed before he could start contributing at his first job.
+It's difficult only because you have to read and decipher these error messages in your terminal when something doesn't install or run correctly.
+It wasn't long until I ran into an issue.
+
+When I ran "gulp" to get started, there was an error inside of the gulpfile.
+It was highlighting a line of code using ES6 arrow syntax and saying it didn't recognize it.
+I look through the rest of the file and see no other use of ES6 arrow syntax.
+Could I have forgotten a step in the build process?
+
+I google around for a solution and get nothing helpful.
+I decide to hack it and turn the ES6 arrow into a regular function declaration and see what happens.
+The "gulp" command doesn't complain anymore and sets up a localhost on my machine.
+
+High off of this success, it doesn't take me long before I run into another road block.
+I go to my localhost and I'm greeted by something that resembles the Free Code Camp home page, except it's not functional.
+Clicking on the "map" link that normally displays all challenges does nothing.
+There are a number of errors that I see, most noticeably a missing "bundle.js" file.
+
+I kick myself for missing a step somewhere, and decide to start from scratch.
+I delete my local copy of the repo and start to install everything from the beginning, making sure to be extra vigilant with my keystrokes.
+I'm met with the same errors and decide that this is finally the time to use the Gitter channel.
+
+When I first log into the Gitter channel, I see a lot of messages talking about new updates to Free Code Camp.
+To my right, I'm greeted by a summary of recent activity of this channel which includes 4 people getting banned from this channel.
+Were these 4 people guilty of not getting their gulp files to work? Or may they nonchalantly asked where their missing bundle.js file was?
+
+I decide to read through the contribution guide again in case I missed something obvious. I've read through it so many times that I can practically recite all of the steps.
+I don't find anything new that would help me and I get the strength to finally ask the Gitter channel about my ES6 syntax issue.
+Someone responds right away, but I am quickly disappointed when I notice they weren't talking to me.
+
+I wait and wait until salvation comes! A maintainer named Dylan says that I have to update my node and npm.
+I look through the contribution guide and it clearly states the version I should be using; how did I overlook this?
+I thank Dylan for his act of kindness; and I thank Gitter for not banning me. I promptly install the latest node and npm and things are looking brighter already.
+
+I decide to delete everything and start from scratch again. It's my third time now and setting this project up has become a familiar dance.
+I also pull some new code that has been committed since yesterday which fixes some of the errors I was seeing.
+
+I run into the same error with the missing "bundle.js" file and I ask in the Gitter channel about this. Someone responds that the "gulp" command should have created it.
+I create the "bundle.js" by running the "webpack" command myself and finally the environment looks like it's working. I can finally start working on the actual issue!
+
+The actual fix took a quarter of the time that setting up my project took. I had to write a regex that checked for a regex. The tricky part was to turn my regex into a string and remember to use backslahes to escape characters as needed.
+I update one line of code and run my tests which pass.
+I read through the documentation for pull request instructions.
+Free Code Camp has an awesome pre-populated checklist when you submit a pull request.
+
+I take a final breath and send off my pull request. I feel like a parent sending their child off to school.
+There's nothing else I can do now except wait.
 
 =================================================================
 Pull Request Merged! 🏋
 
+The next day, I get an email about the status of my pull request. (https://github.com/FreeCodeCamp/FreeCodeCamp/pull/11026#event-810810708)
+Someone commented "LGTM"!
+After a quick google search of what that actually means, I feel a big sense of relief and joy as I see that my code is merged.
+My first step into Open Source was a success!
 
 =================================================================
 What I learned 🤓
 
+I did learn some technical things by working on this issue.
+I got more experience working with regex.
+I also learned about using backslashes to escape certain characters in strings.
+I've only used backslashes to escape quotation marks inside of strings before this.
 
 =================================================================
-Advice to new Open Source contributors 👶
+Words to new Open Source contributors 👶
 
+This was an amazing experience to go through.
+For those interested in contributing, here's some advice that I would give you.
+
+Work hard and persevere.
+I would say 60% of the time when you're working, everything is running with no issues.
+It's that other 40% when everything breaks and doesn't work that will define who you are as a developer.
+Embrace these walls and fight through them.
+I learn more from fixing my bugs than if everything was running smoothly.
+Change your mindset to welcome your mistaktes and use them as lessons.
+
+Be detailed when you're communicating.
+This is especially important when you're asking questions over an asynchronous mode of communication (like Gitter or email).
+
+Imagine if you were using an API to request information for the weather in your city. Which makes more sense?
+1. You ask the API for the weather
+2. The API responds back asking for a location
+3. You respond "New York"
+4. The API asks if you want it in celsius, fahrenheit or kelvin
+5. You respond "fahrenheit"
+6. The API responds back with "72 degrees fahrenheit in New York"
+
+Or does this make more sense:
+1. You ask the API for the weather in New York in fahrenheit.
+2. The API responds back with "72 degrees fahrenheit in New York"
+
+It seems silly that anyone would choose the first option, but that's exactly what people do sometimes when they're communicating.
+Simple conversations get drawn out while each party is waiting for the other to respond.
+
+Don't be intimidated by Open Source maintainers and developers more skilled than you are.
+They may have more experience than you, but realize that they were like you at one point.
+They've just seen and worked through more failures than you have.
+Just remember that we're all on the same long road; we're just a couple of steps behind them. The important thing is to keep moving.
 
 =================================================================
-Advice to Open Source maintainers 👤
+Words to Open Source maintainers 👤
+
+The Free Code Camp community was amazing and super helpful when I needed it. I wanted to thank all the maintainers who go out of their way to help out new contributors.
+You might think you're doing something small when you're telling someone to update their node and npm. But you don't realize that you might actually be their lifesaver keeping them from drowning and quitting. Keep up the awesome work!
+
+Be careful with the words you use.
+
+I was recently on a trip to Japan and was looking for a restaurant to eat at. I passed by a promising restaurant, but it had a sign on the window that said "No English Speaking." Everything else was in Japanese.
+How would a foreigner like me have interpreted this sign? Does it mean that nobody in there speaks English? Does it mean that I'd just have to play russian roulette with whatever I pointed to on the menu? Are they xenophobic and not welcoming of foreigners like me?
+I never took the chance to find out and kept on walking.
+
+As maintainers, sometimes you're the first real person that new contributors communicate with. Be mindful that these contributors are in a foreign land inside Open Source and may be struggling to speak the language, let alone try to fix an open issue in the repository.
+
+I plan on continuing my Open Source journey and hope to see you there and hear your stories.
