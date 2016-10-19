@@ -1,100 +1,231 @@
 # What I Learned From Reading The Redux Source Code
 
 ## Learning from open source
-
   1. Working on projects is a great way of learning
-	2. Watching other people as they work is even better
-    -there are some things that can't be passed down through tutorials
-    -take for example Stradivarius instruments
-    -see their thought process and notice fine details that masters overlook
-		-similar to apprenticeships
-	3. Looking at their code will suffice
-		-Bill Gates dumpster diving to get source code
-    -if someone like Bill Gates, we should follow his approach
-	4. Not a new concept
-	  -Tutorials that you follow along are structured the same way
-    -The text of the tutorial is the master's voice guiding you
-    -The comments section provides you with a way to ask questions
-    -Live coding sessions (https://www.youtube.com/watch?v=rBSY7BOYRo4).
-    -I love the supercharged series, and seeing how they fumble and think through issues.
+	When new developers ask me the best way of learning, I always respond back that they should work on projects.
+	Finding a project to work on that you like and would use is amazing.
+	The passion for the product will get you through hour long debug sessions and prevent you from abandoning your project altogether.
+	However, there is a disadvantage in only working solo.
+	You won't notice any bad habits that you have picked up.
+	You won't learn any best practices.
+	You won't hear about all of the new frameworks and tools that are sprouting around you.
+	You will quickly notice that your skills will plateau on your lonely adventure.
 
-## Why I chose Redux
+	2. Watching other people as they work is even better
+	Whenever possible, I recommend that developers seek out others to peer program together and learn from them.
+	Sitting next to a peer (or if you're lucky enough, someone more experienced) allows you to learn details that you would have never learned on your own or through a tutorial.
+	You get to observe their thought processes.
+	You get to see how their fingers glide over the keyboard.
+	You get to watch how they struggle and tackle algorithms.
+	You get to learn new developer tools and keyboard shortcuts.
+	You get to soak in all the intangible things that you wouldn't otherwise be able to through a written tutorial.
+	Being in the thick of the action is the ideal place to be.
+
+	### INCLUDE IMAGE OF STRADIVARIUS VIOLIN
+	Take for example the Stradivarius violins.
+	Stradivarius instruments have a reputation of having excellent quality of sound that (arguably) has no equal.
+	Many theories have been presented to explain the Stradivarius' superiority, ranging from wood being salvaged from old cathedrals to special wood preservatives that were used back in the day.
+	People have tried to reproduce it with moderate success because we don't know how Antonio Stradivari worked.
+	But imagine all the secrets and tricks that could be learned if you were in the same room as Antonio, let alone sitting right next to him as he works.
+	This is how you should treat your peer programming sessions.
+	You should bring a healthy dose of curiosity as you watch your peer create Stradivarius-esque code.
+	There's no other way to see all the blood, sweat, and tears that go into a line of one's code.
+
+
+	### INCLUDE IMAGE OF DUMPSTER DIVING BEAR
+	For many, the opportunity to peer program is rare.
+	You can still learn from others by looking at code that they've written.
+	Well-written code should read like a page from a novel.
+	Like a novel, reading through it involves more interpretation on your part than if you were speaking directly with the author.
+	There is a wealth of information that can be gathered by reading through comments and code.
+	For those that are skeptical how much can actually be learned by reading someone else's code, take note of this story.
+	A high school student named Bill Gates went dumpster diving in a company's trash to get their source code and learn their secrets.
+	If someone like Bill Gates went through all that trouble to look at someone's code, I think it's worth it for us to open up a Github repo and take a look through it.
+
+	4. Not a new concept
+	Reading through code and learning from others is not a new concept.
+	Tutorials are structured in a way that you follow along with a master through their coding journey.
+	A well-written tutorial will feel like you're sitting next to the writer.
+	You get the opportunity to read the issues they're thinking about.
+	Hypertext links also provide resources for you to read through, and even do so in the middle of the tutorial. You wouldn't do that in a peer programming session.
+	The comments section and social media outlets allow you to have conversations with the masters.
+
+	I also watch people code on YouTube.
+	I would recommend the SuperCharged Live Coding Session from the Google Chrome Developers' series (https://www.youtube.com/watch?v=rBSY7BOYRo4).
+	You get to watch two Googlers coding a project and see how they approach performance issues, struggle through typos and get stuck.
+
+	## Why I chose Redux
 	1. Relatively small codebase
-	2. Relatively simple concept
-	3. Check out the video series from the creator himself, Dan Abramov. (https://egghead.io/courses/getting-started-with-redux)
-	4. This will not be a tutorial on Redux, but rather tidbits I learned by looking through their code.
+	I chose to look at Redux because it has a relatively small codebase.
+	The concept of Redux is also surprisingly simple.
+	For those who are interested in learning Redux, I highly recommend looking through the "Getting Started with Redux" series from the creator himself, Dan Abramov (https://egghead.io/courses/getting-started-with-redux);
+	This article won't be a tutorial on Redux but rather tidbits that I learned by looking through their source code.
 
 ## Lessons I learned
 
 ### ESLint
-	1. use a linter
-		-keeps your code consistent and clean
-		-you can use your own custom rules, or download plugin preset rules that follow conventional styles (such as Airbnb)
-		-make the codebase look like it was written by one person
-			-effective when working on a team
-			-enforce style guides that nobody actually reads
-	-learn best practices
-		-not just aesthetics
-		-will suggest best practices, such as:
-			-using const keyword for variables that aren't getting reassigned
-			-with react plugins, will suggest stateless functional components when possible
-		-great way of learning new ES6 syntax
-	-instructions for quickly getting started with eslint
-		1. npm install --save-dev eslint
+	1. Use a linter
+	Linting is a process of looking through your code for potential errors.
+
+	It helps enforce code style.
+	It keeps your code consistent and clean.
+	You can use your own custom style rules, or use preset rules that follow conventional styles (such as Airbnb).
+	This is especially effective when working on a team of developers -- it makes the code look like it was written by one person.
+	It also forces people to follow company style guides (that developers might not actually read).
+
+	Linters are for more than aesthetics; they force you to follow best practices
+	It will tell you when to use the "const" keyword for variables that aren't getting reassigned.
+	If you have react plugins, it will warn you of components that can be refactored into stateless functional components.
+	It's also a great way of learning new ES6 syntax and tells you places where you can update your code, such as using the Object Property Shorthand.
+
+	2. Instructions for quickly getting started with a linter in your node project
+		1. $ npm install --save-dev eslint
+			// install the eslint package
 		2. ./node_modules/.bin/eslint --init
+			// configure the eslint options
 		3. set up script in package.json
+			// set up a script to run your linter (optional)
 		4. npm run lint
-		#. http://eslint.org/docs/user-guide/getting-started
-    -. Most editors have plugins that will lint files for you in real time
-	-How to ignore eslint for some lines
-    -Useful when you want to ignore rules one time
-    -Sometimes lint doesn't understand your whole project
-    -no-unused-vars, when I was importing react
-		-for single line
-			console.log('Hello World'); // eslint-disable-line no-console
-		-for multi line
-			/* eslint-disable no-console */
-			console.log('Hello World');
-			console.log('Goodbye World');
-			/* eslint-enable no-console */
+
+		Check out this link for more details on how to get started (http://eslint.org/docs/user-guide/getting-started).
+		Many editors also have plugins that will lint your files as you type.
+
+		Sometimes linters might complain about code that you actually need, such as a console.log.
+		You can tell your linter to ignore certain lines of code in their analysis.
+		To do this in eslint, you would include the comments below:
+
+		// Single line Ignore
+		console.log('Hello World'); // eslint-disable-line no-console
+
+		// Multiline Ignore
+		/* eslint-disable no-console */
+		console.log('Hello World');
+		console.log('Goodbye World');
+		/* eslint-enable no-console */
 
 ### Check for minification
-	-isCrushed function
-  -during minification/uglifying, function names are changed and shortened.
-  -code check if the function name exists, and send a warning that you are using minified code in development
-  -INCLUDE link to isCrushed function, inside src/index.js file
+	## include snippet from isCrushed()
+	I found a random "isCrushed()" function inside the source code that had no body.
+	This was strange. But I found that its only purpose was to see if the code was minified.
+	During minification, function names are shortened.
+	There was an if statement that checked if the "isCrushed()" function still existed with that name.
+	## show if statement
+	A warning would be shown if the minified code was used in development.
 
 ### Don't be afraid of errors!
-	-JavaScript is loosely typed language, so compensate with errors
-  -Redux code has a lot of error checking for arguments
-	-Take advantage of try...catch if you want code to run despite errors
-	-Easier to debug.
-  -Include image of a stack trace with a custom error
+	I had rarely used errors in my code outside of learning about it.
+	JavaScript is a loosely-typed language so we should be paranoid about what gets passed into our functions.
+	Throw errors and scream like a strongly-typed language would!
+	Take advantage of try...catch...finally statements.
+	Errors will make your code easier to debug and reason with in the future.
+	Take a look at the nice stack trace that's produced in the console.l
+	### INCLUDE SCREENSHOT OF STACK TRACE
+
+	Errors makes your intentions explicit.
+	For example, if your "add()" function only expects numbers, then let the whole world know!
+
+	```
+	function add(a, b) {
+		if(typeof a !== 'number' && typeof b !== 'number') {
+			throw new Error('Invalid arguments passed. Expected numbers');
+		}
+
+		return a + b;
+	}
+
+	var sum = add('foo', 2);  // errors will prevent unintended consequences in your code
+	```
 
 ### Function composition
-	-create new functions out of old ones
-  -INCLUDE code snippet of this function composition
+	There was code that did function composition, creating new functions out of old ones. See below:
 
-### Learn native methods
-  -The function composition used an array function, "reduceRight" that I have never even heard of
-  -Learn native methods and take advantage of them
-	-filter
-	-forEach
-  -INCLUDE bad example of filter
+	```
+	function compose(...funcs) {
+		if (funcs.length === 0) {
+			return arg => arg
+		}
+
+		if (funcs.length === 1) {
+			return funcs[0]
+		}
+
+		const last = funcs[funcs.length - 1]
+		const rest = funcs.slice(0, -1)
+		return (...args) => rest.reduceRight((composed, f) => f(composed), last(...args))
+	}
+	```
+
+	If I have an existing function that squares a number anod another function that doubles a number, I can combine them together into a new function.
+
+	```
+	function square(num) {
+		return num * num;
+	}
+
+	function double(num) {
+		return num * 2;
+	}
+
+	function squareThenDouble(num) {
+		return compose(double, square)(num);
+	}
+
+	console.log(squareThenDouble(7)); // 98
+	```
+
+	I don't know if I'll ever find a use for this, but it's good to have something like this in my tools.
+
+
+### Learn Native Methods
+	When I was looking at the "compose()" function, I ran into an Array function, "reduceRight()" that I had never heard of.
+	Let's look at a code snippet that uses the native "filter()" function and one that implements are own.
+
+	```
+	function custom(array) {
+		let newArray = [];
+
+		for(var i = 0; i < array.length; i++) {
+			if(array[i]) {
+				newArray.push(array[i]);
+			}
+		}
+
+		return newArray;
+	}
+
+	function native(array) {
+		return array.filter((current) => current);
+	}
+
+	const myArray = [false, true, true, false, false, false, true, false];
+	console.log(custom(myArray));
+	console.log(native(myArray));
+	```
+
+	You can see how concise the new code is.
+	Most importantly, we're not reinventing the wheel.
+	The "filter()" function has probably been tested and used by thousands of other users. It's probably less buggy than your implementation.
+	Before writing your own solution, check to see if the problem has already been solved in the language you're using.
+	You'll be surprised how many utility methods a language like Ruby might have. (check out this method for repeated permutations in an array https://ruby-doc.org/core-2.2.0/Array.html#method-i-repeated_permutation).
 
 ### Use descriptive function names
-  -Looking through the source code, I saw a lot of long-winded names
+	Looking through the source code, I saw a lot of long function names.
 	-getUndefinedStateErrorMessage
 	-getUnexpectedStateShapeWarningMessage
 	-assertReducerSanity
-  -Use descriptive names!
-	-You spend more time reading code than writing it
-  -Modern text editors have autocomplete that will help you
+	Although they might not roll of the tongue, there is no confusion about what they do.
+	Use descriptive names in your code!
+	You will likely spend more time reading code than writing it, so make it easier for everyone to read.
+	The benefits of using long descriptive names far exceed the irritation you get from the extra keystrokes.
+	Modern text editors have autocomplete features that help you type. You have no excuses to use "x" or "y" as variables.
 
 ### console.error vs. console.log
-	-console.error prints to stderr.
-  -when run in browser, it shows in red with a stack trace
-  -INCLUDE screenshot of the console.error
+	Don't use console.log for everything!
+	If you have an error that you want to print out, use console.error.
+	## INCLUDE SCREENSHOT of the console.error message
+	Take a look at documentation for the Console and see what other methods are available.
+	https://developer.mozilla.org/en-US/docs/Web/API/Console
+	There is a built in timer (console.time()), you can print out your info in a table layout (console.table()) and much more.
 
 ## Don't be afraid to dig through Open Source code
-  - you will definitely learn something, and might even find something to contribute
+	You'll definitely learn something and might even find something to contribute.
