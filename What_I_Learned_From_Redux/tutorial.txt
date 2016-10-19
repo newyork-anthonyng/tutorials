@@ -1,0 +1,100 @@
+# What I Learned From Reading The Redux Source Code
+
+## Learning from open source
+
+  1. Working on projects is a great way of learning
+	2. Watching other people as they work is even better
+    -there are some things that can't be passed down through tutorials
+    -take for example Stradivarius instruments
+    -see their thought process and notice fine details that masters overlook
+		-similar to apprenticeships
+	3. Looking at their code will suffice
+		-Bill Gates dumpster diving to get source code
+    -if someone like Bill Gates, we should follow his approach
+	4. Not a new concept
+	  -Tutorials that you follow along are structured the same way
+    -The text of the tutorial is the master's voice guiding you
+    -The comments section provides you with a way to ask questions
+    -Live coding sessions (https://www.youtube.com/watch?v=rBSY7BOYRo4).
+    -I love the supercharged series, and seeing how they fumble and think through issues.
+
+## Why I chose Redux
+	1. Relatively small codebase
+	2. Relatively simple concept
+	3. Check out the video series from the creator himself, Dan Abramov. (https://egghead.io/courses/getting-started-with-redux)
+	4. This will not be a tutorial on Redux, but rather tidbits I learned by looking through their code.
+
+## Lessons I learned
+
+### ESLint
+	1. use a linter
+		-keeps your code consistent and clean
+		-you can use your own custom rules, or download plugin preset rules that follow conventional styles (such as Airbnb)
+		-make the codebase look like it was written by one person
+			-effective when working on a team
+			-enforce style guides that nobody actually reads
+	-learn best practices
+		-not just aesthetics
+		-will suggest best practices, such as:
+			-using const keyword for variables that aren't getting reassigned
+			-with react plugins, will suggest stateless functional components when possible
+		-great way of learning new ES6 syntax
+	-instructions for quickly getting started with eslint
+		1. npm install --save-dev eslint
+		2. ./node_modules/.bin/eslint --init
+		3. set up script in package.json
+		4. npm run lint
+		#. http://eslint.org/docs/user-guide/getting-started
+    -. Most editors have plugins that will lint files for you in real time
+	-How to ignore eslint for some lines
+    -Useful when you want to ignore rules one time
+    -Sometimes lint doesn't understand your whole project
+    -no-unused-vars, when I was importing react
+		-for single line
+			console.log('Hello World'); // eslint-disable-line no-console
+		-for multi line
+			/* eslint-disable no-console */
+			console.log('Hello World');
+			console.log('Goodbye World');
+			/* eslint-enable no-console */
+
+### Check for minification
+	-isCrushed function
+  -during minification/uglifying, function names are changed and shortened.
+  -code check if the function name exists, and send a warning that you are using minified code in development
+  -INCLUDE link to isCrushed function, inside src/index.js file
+
+### Don't be afraid of errors!
+	-JavaScript is loosely typed language, so compensate with errors
+  -Redux code has a lot of error checking for arguments
+	-Take advantage of try...catch if you want code to run despite errors
+	-Easier to debug.
+  -Include image of a stack trace with a custom error
+
+### Function composition
+	-create new functions out of old ones
+  -INCLUDE code snippet of this function composition
+
+### Learn native methods
+  -The function composition used an array function, "reduceRight" that I have never even heard of
+  -Learn native methods and take advantage of them
+	-filter
+	-forEach
+  -INCLUDE bad example of filter
+
+### Use descriptive function names
+  -Looking through the source code, I saw a lot of long-winded names
+	-getUndefinedStateErrorMessage
+	-getUnexpectedStateShapeWarningMessage
+	-assertReducerSanity
+  -Use descriptive names!
+	-You spend more time reading code than writing it
+  -Modern text editors have autocomplete that will help you
+
+### console.error vs. console.log
+	-console.error prints to stderr.
+  -when run in browser, it shows in red with a stack trace
+  -INCLUDE screenshot of the console.error
+
+## Don't be afraid to dig through Open Source code
+  - you will definitely learn something, and might even find something to contribute

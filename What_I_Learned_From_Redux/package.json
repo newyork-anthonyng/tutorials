@@ -1,0 +1,15 @@
+{
+  "name": "what_i_learned_from_redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "./node_modules/.bin/eslint"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.8.1"
+  }
+}
