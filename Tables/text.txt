@@ -1,0 +1,24 @@
+Use tables
+	chatting with a student
+	saw a code snippet that used a table
+	asked if he could change it to use two <ul>
+	would style it using CSS to resemble a table
+	tables were old school
+
+Is there a use for tables?
+	MDN definition says they are used to present two dimensional tables
+	First thing that comes to mind are charts and two dimensional lists
+
+Where did all the hate come from?
+	Back in the day, tables were used for formatting and layout purposes
+	With the advance of CSS and properties such as float, we don't need to use tables as a hack
+	Using tables for formatting
+	http://codepen.io/newyork-anthonyng/pen/Obyowm
+	Using CSS and flex for formatting
+	http://codepen.io/newyork-anthonyng/pen/yVYxRq
+
+Table layouts will still be around in the foreseable future
+	Email clients are more varied and older than Web Browsers
+	Email clients have less support for certain CSS styles
+	Tables provide a way for consistent display/layout
+
