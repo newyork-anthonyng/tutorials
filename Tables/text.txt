@@ -1,24 +1,35 @@
-Use tables
-	chatting with a student
-	saw a code snippet that used a table
-	asked if he could change it to use two <ul>
-	would style it using CSS to resemble a table
-	tables were old school
+<table> prejudice and HTML xenophobia
 
-Is there a use for tables?
-	MDN definition says they are used to present two dimensional tables
-	First thing that comes to mind are charts and two dimensional lists
+-Use tables
+I was looking over HTML with a student when we stumbled onto a <table>. It displayed data with restaurant reservation information. It looked like this (http://codepen.io/newyork-anthonyng/pen/xRRgxe). The first column held the names for the reservation. The second column held the time of the reservation.
 
-Where did all the hate come from?
-	Back in the day, tables were used for formatting and layout purposes
-	With the advance of CSS and properties such as float, we don't need to use tables as a hack
-	Using tables for formatting
-	http://codepen.io/newyork-anthonyng/pen/Obyowm
-	Using CSS and flex for formatting
-	http://codepen.io/newyork-anthonyng/pen/yVYxRq
+The student frowned at the use of the <table>. He said, "oh wow, I can't believe this code is actually using a table. What is this, the 90's?". Having not coding in the 90's, I faked a chortle and asked what he would do instead.
 
-Table layouts will still be around in the foreseable future
-	Email clients are more varied and older than Web Browsers
-	Email clients have less support for certain CSS styles
-	Tables provide a way for consistent display/layout
+The student started brainstorming how to code the Reservation Information the "right" way. He would use lists. I asked, "so you would need two lists? One for the name, and one for the time?" He responds, "yes. And I'll use CSS to style it to look like a table."
 
+His distaste of abused tables had led him to use a different HTML element and abuse that instead. I wondered if there were other developers that thought the same way.
+
+-Why use tables?
+What was a table intended to do? According to MDN (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table), tables present tabular data. I like to think of tabular data as information that has a relationship between it. Was there a relationship between each reservation? Yes, each reservation time was associated with a specific name.
+
+Where did all the hate come from? Back in the day, tables were used for formatting and layout purposes. Take a look at this example (http://codepen.io/newyork-anthonyng/pen/Obyowm).
+
+With the advance of CSS, we don't need to use tables as a hack for page layout. Take a look at this rewritten example (http://codepen.io/newyork-anthonyng/pen/yVYxRq).
+
+-Table layouts will still be around in the foreseable future
+Your stomach might wrench looking at that code using tables for layout. But this code is going to exist for awhile. Many find cross-browser testing to be difficult, but consider how many different email clients there are. Email clients do not have strong, consistent support for certain CSS styles. Tables provide a way for consistent display/layout.
+
+Learn your HTML!
+My advice is to learn which tools are available to you. Most importantly, use the correct tool for the job. You could use a hammer to hammer a screw in, but would a screw driver be better?
+
+Many of us are content using the HTML tags that we are comfortable with. We have no issue investing time to learn about JavaScript closures, algorithm optimizations, and frameworks. But would you ever consider learning about different HTML tags to use besides <div>, <span>, <h1>, and <p>?
+
+Have you heard of the <dl> tag before (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)? It might be useful when writing a glossary.
+
+Have you used the <time> tag before (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)? This could allow browsers to schedule events to the user's calendar.
+
+Were you about to use the <b> tag to make something look important by making it bold? Think about using the <strong> tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong). Screen readers don't communicate styling to the users. But it would communicate the semantic meaning of the <strong> tag.
+
+Are you importing a library to get a color picker or calendar on your screen? Consider using <input type="color" /> or <input type="date"> to use what the browser gives you.
+
+Take a look at all the html tags that are available to us (https://developer.mozilla.org/en-US/docs/Web/HTML/Element). Next time you write code, ask yourself if you're reaching for the right tool.
